@@ -24,15 +24,15 @@ func SetupRouter() *gin.Engine {
 	app := gin.Default()
 
 	// Middlewares
-	app.Use(auth.AuthenticationMiddleware())
 	app.Use(cors.New(cors.Config{
-		AllowOrigins:     []string{"http://localhost:3000"},
+		AllowOrigins:     []string{"http://localhost:3000", "https://dashboard.loglinear.io"},
 		AllowMethods:     []string{"PUT", "PATCH", "OPTIONS"},
-		AllowHeaders:     []string{"Content-Type"},
-		ExposeHeaders:    []string{"Content-Type"},
+		AllowHeaders:     []string{"Content-Type", "Authorization"},
+		ExposeHeaders:    []string{"Content-Type", "Authorization"},
 		AllowCredentials: true,
 		MaxAge:           12 * time.Hour,
 	}))
+	app.Use(auth.AuthenticationMiddleware())
 	isProduction := os.Getenv("is_production")
 	if isProduction == "false" {
 		// Build folder will be in the /apps/website/build.

@@ -1,6 +1,6 @@
 version: '3'
 services:
-  app:
+  userservice:
     container_name: app
     build: ./src
     environment:
@@ -16,10 +16,10 @@ services:
     ports:
       - ${PORT}:${PORT}
     depends_on: 
-      - scratchdb
+      - userdb
     links:
-      - scratchdb
-  scratchdb:
+      - userdb
+  userdb:
     container_name: ${DB_HOST}
     image: postgres
     environment:
@@ -28,8 +28,8 @@ services:
       - POSTGRES_DB=${DB_NAME}
       - PGDATA=/var/lib/postgresql/data/pgdata
     volumes:
-      - scratchpostgresvolume:/var/lib/postgresql/data/
+      - userdb:/var/lib/postgresql/data/
     ports:
       - 5433:${DB_PORT}
 volumes: 
-  scratchpostgresvolume:
+  userdb:

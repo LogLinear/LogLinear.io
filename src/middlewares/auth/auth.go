@@ -20,12 +20,16 @@ func AuthenticationMiddleware() gin.HandlerFunc {
 		fullPath := url.EscapedPath()
 		noAuthRoutes := []string{
 			"/",
+			"/forgetPassword",
+			"/create",
+			"/api/v1/verify",
 			"/api/v1/createAccount",
 			"/api/v1/loginAccount",
 			"/api/v1/forgetPassword",
 		}
 		for _, noAuthRoute := range noAuthRoutes {
 			if fullPath == noAuthRoute {
+				log.Println(fullPath)
 				c.Next()
 				return
 			}

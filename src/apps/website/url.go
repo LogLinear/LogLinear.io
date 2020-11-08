@@ -7,4 +7,5 @@ func Register(router *gin.RouterGroup) {
 	router.GET("/forgetPassword", websiteHandler)
 	router.GET("/create", websiteHandler)
 	router.GET("/dashboard", websiteHandler)
+	router.GET("/verify", websiteHandler)
 }

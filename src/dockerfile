@@ -13,9 +13,9 @@ RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o main .
 FROM node:12 as stage2
 WORKDIR /app
 COPY ./website/package.json ./
-RUN npm install
+RUN yarn
 COPY ./website .
-RUN npm run build
+RUN yarn build
 
 FROM alpine:latest
 RUN apk update && apk add bash
@@ -27,4 +27,4 @@ COPY --from=stage1 /app/main .
 COPY --from=stage2 /app/build ./build
 # Copy wait for it
 COPY ./wait-for-it.sh ./
-CMD ["./wait-for-it.sh", "scratchdb:5432", "--", "./main"]
+CMD ["./wait-for-it.sh", "userservicedb:5432", "--", "./main"]
