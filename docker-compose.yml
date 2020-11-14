@@ -14,11 +14,19 @@ services:
       - GIN_MODE=release
       - IS_DOCKER=true
     ports:
-      - ${PORT}:${PORT}
+      - 9000:${PORT}
     depends_on: 
       - userdb
     links:
       - userdb
+      - emailservice
+  emailservice:
+    container_name: emailservice
+    build: ./emailservice
+    environment: 
+      - PORT=${PORT}
+    ports:
+      - 9001:${PORT}
   userdb:
     container_name: ${DB_HOST}
     image: postgres
