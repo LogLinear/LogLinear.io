@@ -4,7 +4,7 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"scratchuniversity/apps/db"
+	"mainapp/apps/db"
 	"strings"
 
 	"github.com/dgrijalva/jwt-go"

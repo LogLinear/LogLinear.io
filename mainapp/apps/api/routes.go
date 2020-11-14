@@ -3,7 +3,7 @@ package api
 import (
 	"log"
 	"net/http"
-	"scratchuniversity/apps/db"
+	"mainapp/apps/db"
 
 	"github.com/gin-gonic/gin"
 	"github.com/gin-gonic/gin/binding"

@@ -1,4 +1,4 @@
-module scratchuniversity
+module mainapp
 
 go 1.13
 

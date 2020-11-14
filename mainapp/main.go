@@ -3,11 +3,11 @@ package main
 import (
 	"fmt"
 	"log"
+	"mainapp/apps/api"
+	_ "mainapp/apps/db"
+	"mainapp/apps/website"
+	"mainapp/middlewares/auth"
 	"os"
-	"scratchuniversity/apps/api"
-	_ "scratchuniversity/apps/db"
-	"scratchuniversity/apps/website"
-	"scratchuniversity/middlewares/auth"
 	"time"
 
 	"github.com/gin-contrib/cors"
