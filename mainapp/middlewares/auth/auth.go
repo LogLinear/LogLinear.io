@@ -2,9 +2,9 @@ package auth
 
 import (
 	"log"
+	"mainapp/apps/db"
 	"net/http"
 	"os"
-	"mainapp/apps/db"
 	"strings"
 
 	"github.com/dgrijalva/jwt-go"
@@ -23,6 +23,8 @@ func AuthenticationMiddleware() gin.HandlerFunc {
 			"/forgetPassword",
 			"/create",
 			"/api/v1/verify",
+			"/api/v1/status",
+			"/api/v1/email",
 			"/api/v1/createAccount",
 			"/api/v1/loginAccount",
 			"/api/v1/forgetPassword",

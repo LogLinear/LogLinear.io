@@ -5,6 +5,7 @@ import (
 	"log"
 	"mainapp/apps/api"
 	_ "mainapp/apps/db"
+	"mainapp/apps/service"
 	"mainapp/apps/website"
 	"mainapp/middlewares/auth"
 	"os"
@@ -49,6 +50,7 @@ func SetupRouter() *gin.Engine {
 	websiteRouter := app.Group("/")
 
 	api.Register(apiRouter)
+	service.Register(apiRouter)
 	website.Register(websiteRouter)
 
 	return app
