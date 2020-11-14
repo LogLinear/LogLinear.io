@@ -2,7 +2,7 @@ version: '3'
 services:
   userservice:
     container_name: app
-    build: ./src
+    build: ./mainapp
     environment:
       - PORT=${PORT} 
       - is_production=true

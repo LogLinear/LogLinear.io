@@ -27,4 +27,4 @@ COPY --from=stage1 /app/main .
 COPY --from=stage2 /app/build ./build
 # Copy wait for it
 COPY ./wait-for-it.sh ./
-CMD ["./wait-for-it.sh", "userservicedb:5432", "--", "./main"]
+CMD ["./wait-for-it.sh", "userdb:5432", "--", "./main"]
