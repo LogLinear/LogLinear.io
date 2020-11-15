@@ -26,6 +26,8 @@ services:
     environment: 
       - PORT=${PORT}
       - GIN_MODE=release
+      - MAILGUN_DOMAIN=${MAILGUN_DOMAIN}
+      - MAILGUN_API_KEY=${MAILGUN_API_KEY}
     ports:
       - 9001:${PORT}
   userdb:
